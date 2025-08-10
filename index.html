@@ -15,7 +15,8 @@
       background: linear-gradient(to right, #000428, #004e92);
       color: #fff;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
       align-items: center;
       min-height: 100vh;
       padding: 20px;
@@ -27,6 +28,7 @@
       max-width: 600px;
       width: 100%;
       padding: 30px;
+      margin-bottom: 20px;
     }
     h1 {
       text-align: center;
@@ -86,10 +88,12 @@
       margin-top: 10px;
     }
     .comments {
-      margin-top: 35px;
+      margin-top: 20px;
       background: rgba(255, 255, 255, 0.05);
       padding: 15px;
       border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
     }
     .comment {
       margin-bottom: 15px;
@@ -180,6 +184,7 @@
     function showDeviceStep() {
       document.getElementById('step1').style.display = 'none';
       document.getElementById('step2').style.display = 'block';
+      window.scrollTo(0,0);
     }
     function startGenerator(device) {
       document.getElementById('step2').style.display = 'none';
@@ -202,6 +207,7 @@
           loadingText.style.display = 'none';
           document.getElementById('credentials').style.display = 'block';
           document.getElementById('finalStepBtn').style.display = 'block';
+          window.scrollTo(0,document.body.scrollHeight);
         }
       }, 1500);
     }
